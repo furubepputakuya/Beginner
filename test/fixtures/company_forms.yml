@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  catchcopy: MyString
+  money: MyString
+  otherwise_money: MyString
+  period: MyString
+  work_content: MyText
+  otherwise: MyText
+
+two:
+  title: MyString
+  catchcopy: MyString
+  money: MyString
+  otherwise_money: MyString
+  period: MyString
+  work_content: MyText
+  otherwise: MyText

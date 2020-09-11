@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+  <head></head>
+  <body>
+    <div class="container">
+      <h3>Beginner's建築〜ビギケン〜</h3>
+    </div>
+    <div class="container text-center bg-info">
+      <h4>企業用マイページ(登録一覧)</h4>
+    </div>
+
+    <% @company_forms.each do |company_form| %>
+      <% @company = Company.find_by(id: company_form.company_id) %>
+
+        <div class="container">
+          <div class="row mt-5">
+            <div class="col-md-2 bg-white"></div>
+            <div class="col-md-4 text-center bg-light">
+              <%= image_tag(company_form.image.url, :width => "300") %>
+              <p>現場風景</p>
+            </div>
+            <div class="col-md-4 text-left bg-light">
+              <p class="name">会社名：<%= @company.company_name %></p>
+              <p class="catch">
+                <span class="border-bottom border-primary"><%= company_form.catchcopy %></span></p>
+            </div>
+            <div class="col-md-2 bg-white"></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 bg-light">
+              <table class="tableTypeA01">
+                <tbody>
+                  <tr>
+                    <th scope="row" width="130">
+                      <img src="https://proxy.weban.jp/web_cont/weban/images_v8/c/mod_ico_shopSummary_05.png" width="23" height="23" alt="勤務形態" style="padding-left: 2px;padding-right: 10px;"/>
+                      <span class="border-bottom border-danger">勤務形態</span>
+                    </th>
+                    <td class="jobtype">
+                      <span class="fontBold jobtypeName border-bottom border-danger"><%= company_form.work_type.join(" , ") %></span>
+                      <span class="emptype border-bottom border-danger"></span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" width="130">
+                      <img src="https://proxy.weban.jp/web_cont/weban/images/c/mod_ico_shopSummary_02.png" width="23" height="23" alt="給与" style="padding-left: 2px;padding-right: 10px;"/>
+                      <span class="border-bottom border-danger">給与</span></th>
+                    <td>
+                      <span id="paydtl" class="border-bottom border-danger"><%= company_form.money %></span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" width="130">
+                      <img src="https://proxy.weban.jp/web_cont/weban/images/d/mod_ico_shopSummary_03.png" width="23" height="23" alt="勤務期間" style="padding-left: 3px;padding-right: 9px;"/>
+                      <span class="border-bottom border-danger">勤務期間</span></th>
+                    <td>
+                      <span id="offihrdtllst" class="border-bottom border-danger"><%= company_form.period %></span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" width="130">
+                      <img src="https://proxy.weban.jp/web_cont/weban/images_v8/c/mod_ico_shopSummary_06.png" width="23" height="23" alt="レベル設定" style="padding-left: 5px;padding-right: 10px;"/>
+                      <span class="border-bottom border-danger">レベル設定</span></th>
+                    <td>
+                      <span class="border-bottom border-danger"><%= company_form.level_list.join(" , ") %></span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" width="130">
+                      <img src="https://proxy.weban.jp/web_cont/weban/images/c/mod_ico_shopSummary_04.png" width="23" height="23" alt="勤務地" style="padding-left: 0px;padding-right: 5px;"/>
+                      <span class="border-bottom border-danger">勤務地</span></th>
+                    <td>
+                      <span class="border-bottom border-danger"><%= company_form.title %></span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 text-center bg-light py-3">
+              <%= link_to("内容詳細を確認する","/posts/#{company_form.id}/show",class: "btn btn-primary btn-lg") %>
+            </div>
+            <div class="col-md-4 text-center bg-light py-3">
+              <%= link_to("応募状況を確認する","/company/#{company_form.id}/company_entry",class: "btn btn-danger btn-lg") %>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <% end %>
+
+        <div class="pagination justify-content-center mt-5">
+          <%= will_paginate @company_forms, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,:previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-md-2"></div>
+          <div class="col-md-8 text-center bg-light py-3">
+            <%= link_to("求人を登録する","/company/company_jp",class: "btn btn-success btn-lg") %>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+
+      <footer class="text-center mt-5 pt-5">
+        <p>Beginner's建築〜ビギケン〜</p>
+      </footer>
+    </body>
+  </html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ja">
+  <head></head>
+  <body>
+    <div class="container">
+      <h3>Beginner's建築〜ビギケン〜</h3>
+    </div>
+    <div class="container text-center bg-success">
+      <h4>求人詳細ページ</h4>
+    </div>
+
+    <div class="container">
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※求人登録地</p>
+        </div>
+        <div class="col-md-10">
+          <%= @company_form.japan %>
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-0 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※勤務地</p>
+        </div>
+        <div class="col-md-10">
+          <%= @company_form.title %>
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※勤務形態</p>
+        </div>
+        <div class="col-md-10 list-inline">
+          <ul class="px-0">
+            <%= @company_form.work_type.join(" , ") %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※キャッチコピー</p>
+        </div>
+        <div class="col-md-10">
+          <%= @company_form.catchcopy %>
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※職種</p>
+        </div>
+        <div class="col-md-10 list-inline">
+          <ul class="px-0">
+            <%= @company_form.work_list.join(" , ") %>
+          </div>
+        </div>
+
+        <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+          <div class="col-md-2 pl-5">
+            <p>※レベル設定</p>
+          </div>
+          <div class="col-md-10 list-inline">
+            <ul class="px-0">
+              <%= @company_form.level_list.join(" , ") %>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+          <div class="col-md-2 pl-5">
+            <p>※給与</p>
+          </div>
+          <div class="col-md-10">
+            <%= @company_form.money %>
+          </div>
+        </div>
+
+        <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+          <div class="col-md-2 pl-5">
+            <p>※その他支給</p>
+          </div>
+          <div class="col-md-10">
+            <%= @company_form.otherwise_money %>
+          </div>
+        </div>
+
+        <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+          <div class="col-md-2 pl-5">
+            <p>※勤務期間</p>
+          </div>
+          <div class="col-md-10">
+            <%= @company_form.period %>
+          </div>
+        </div>
+
+        <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+          <div class="col-md-2 pl-5">
+            <p>※仕事内容</p>
+          </div>
+          <div class="col-md-10">
+            <p class="w-75"><%= @company_form.work_content %></p>
+          </div>
+        </div>
+
+        <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+          <div class="col-md-2 pl-5">
+            <p>※その他</p>
+          </div>
+          <div class="col-md-10">
+            <%= @company_form.otherwise %>
+          </div>
+        </div>
+
+        <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+          <div class="col-md-2 pl-5">
+            <p class="">現場風景</p>
+          </div>
+          <div class="col-md-10 pb-2">
+            <%= image_tag(@company_form.image.url, :width => "300") %>
+          </div>
+        </div>
+
+        <% if Like.find_by(user_id: session[:user_id], post_id: params[:id]) %>
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 text-center py-5">
+              <%= link_to("応募を取り消す","/likes/#{@company_form.id}/destroy", method: "post", class: "btn btn-primary btn-lg") %>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <% elsif session[:user_id] %>
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 text-center py-5">
+                <%= link_to("求人に応募する","/likes/#{@company_form.id}/create", method: "post", class: "btn btn-primary btn-lg") %>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          <% end %>
+
+          <% if session[:company_id] == @company_form.company_id %>
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-4 text-center py-5">
+                <%= link_to("求人内容を変更する","/company/#{@company_form.id}/company_form_change", class: "btn btn-primary btn-lg") %>
+              </div>
+              <div class="col-md-4 text-center py-5">
+                <%= link_to("求人内容を削除する","/company/#{@company_form.id}/destroy", method: "post", class: "btn btn-danger btn-lg") %>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          <% end %>
+        </div>
+
+        <footer class="text-center mt-5 pt-5">
+          <p>Beginner's建築〜ビギケン〜</p>
+        </footer>
+      </body>
+    </html>

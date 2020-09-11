@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+  <head></head>
+  <body>
+    <div class="container">
+      <h3>Beginner's建築〜ビギケン〜</h3>
+    </div>
+    <div class="container text-center bg-success">
+      <h4>掲示板</h4>
+    </div>
+
+    <div class="container">
+      <% @boards.each do |board| %>
+        <div class="row mt-1 bg-light pt-3">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="border border-secondary"><%= board.content %></div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+
+        <div class="row bg-light">
+          <div class="col-md-2"></div>
+          <div class="col-md-8 text-right pt-3">
+            <p>投稿者：<%= board.name %><br>投稿日時：<%= board[:created_at].strftime("%Y-%m-%d %H:%M") %></p>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <div class="text-center">⬇︎⬇︎</div>
+      <% end %>
+
+      <div class="row mt-3">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 text-center">
+          <%= link_to("投稿内容作成ページ","/home/board_form",class: "btn btn-outline-primary") %>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="pagination justify-content-center mt-5">
+        <%= will_paginate @boards, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,:previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+      </div>
+    </div>
+
+    <footer class="text-center mt-3 pt-3">
+      <p>Beginner's建築〜ビギケン〜</p>
+    </footer>
+  </body>
+
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Japan Map - EXAMPLE 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- <script src="./jquery.japan-map.min.js"></script> -->
+    <%= javascript_include_tag "jquery.japan-map.min.js" %>
+    <script>
+      $(function () {
+
+        var areaLinks = {
+          "北海道": "hokkaido",
+
+          "青森": "aomori",
+          "秋田": "akita",
+          "岩手": "iwate",
+          "山形": "yamagata",
+          "宮城": "miyagi",
+          "福島": "hukusima",
+
+          "栃木": "totigi",
+          "群馬": "gunma",
+          "茨城": "ibaraki",
+          "埼玉": "saitama",
+          "東京": "tokyo",
+          "千葉": "tiba",
+          "神奈川": "kanagawa",
+
+          "新潟": "nigata",
+          "長野": "nagano",
+          "富山": "toyama",
+          "山梨": "yamanasi",
+          "石川": "isikawa",
+          "岐阜": "gihu",
+          "愛知": "aiti",
+          "福井": "hukui",
+          "静岡": "sizuoka",
+
+          "滋賀": "siga",
+          "京都": "kyoto",
+          "三重": "mie",
+          "兵庫": "hyogo",
+          "大阪": "osaka",
+          "奈良": "nara",
+          "和歌山": "wakayama",
+
+          "鳥取": "tottori",
+          "岡山": "okayama",
+          "島根": "simane",
+          "広島": "hirosima",
+          "山口": "yamaguti",
+
+          "香川": "kagawa",
+          "徳島": "tokusima",
+          "愛媛": "ehime",
+          "高知": "kouti",
+
+          "福岡": "fukuoka",
+          "佐賀": "saga",
+          "長崎": "nagasaki",
+          "大分": "ooita",
+          "熊本": "kumamoto",
+          "宮崎": "miyazaki",
+          "鹿児島": "kagosima",
+
+          "沖縄": "okinawa"
+        };
+
+        /*
+      {"code": 任意の文字列 , "name":"表示したい文字", "color":"エリアの色", "hoverColor":"エリアをhoverした時の色", "prefectures":[対象の都道府県のコード]}
+    */
+        var areas = [
+          {
+            "code": 1,
+            "name": "北海道",
+            "color": "#F38181",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [1]
+          }, {
+            "code": 2,
+            "name": "青森",
+            "color": "#fbad8b",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [2]
+          }, {
+            "code": 3,
+            "name": "岩手",
+            "color": "#fbad8b",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [3]
+          }, {
+            "code": 4,
+            "name": "宮城",
+            "color": "#fbad8b",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [4]
+          }, {
+            "code": 5,
+            "name": "秋田",
+            "color": "#fbad8b",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [5]
+          }, {
+            "code": 6,
+            "name": "山形",
+            "color": "#fbad8b",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [6]
+          }, {
+            "code": 7,
+            "name": "福島",
+            "color": "#fbad8b",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [7]
+          }, {
+            "code": 8,
+            "name": "茨城",
+            "color": "#FCE38A",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [8]
+          }, {
+            "code": 9,
+            "name": "栃木",
+            "color": "#FCE38A",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [9]
+          }, {
+            "code": 10,
+            "name": "群馬",
+            "color": "#FCE38A",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [10]
+          }, {
+            "code": 11,
+            "name": "埼玉",
+            "color": "#FCE38A",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [11]
+          }, {
+            "code": 12,
+            "name": "千葉",
+            "color": "#FCE38A",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [12]
+          }, {
+            "code": 13,
+            "name": "東京",
+            "color": "#FCE38A",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [13]
+          }, {
+            "code": 14,
+            "name": "神奈川",
+            "color": "#FCE38A",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [14]
+          }, {
+            "code": 15,
+            "name": "新潟",
+            "color": "#77e18e",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [15]
+          }, {
+            "code": 16,
+            "name": "富山",
+            "color": "#77e18e",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [16]
+          }, {
+            "code": 17,
+            "name": "石川",
+            "color": "#77e18e",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [17]
+          }, {
+            "code": 18,
+            "name": "福井",
+            "color": "#77e18e",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [18]
+          }, {
+            "code": 19,
+            "name": "山梨",
+            "color": "#77e18e",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [19]
+          }, {
+            "code": 20,
+            "name": "長野",
+            "color": "#77e18e",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [20]
+          }, {
+            "code": 21,
+            "name": "岐阜",
+            "color": "#77e18e",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [21]
+          }, {
+            "code": 22,
+            "name": "静岡",
+            "color": "#77e18e",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [22]
+          }, {
+            "code": 23,
+            "name": "愛知",
+            "color": "#77e18e",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [23]
+          }, {
+            "code": 24,
+            "name": "三重",
+            "color": "#95E1D3",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [24]
+          }, {
+            "code": 25,
+            "name": "滋賀",
+            "color": "#95E1D3",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [25]
+          }, {
+            "code": 26,
+            "name": "京都",
+            "color": "#95E1D3",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [26]
+          }, {
+            "code": 27,
+            "name": "大阪",
+            "color": "#95E1D3",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [27]
+          }, {
+            "code": 28,
+            "name": "兵庫",
+            "color": "#95E1D3",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [28]
+          }, {
+            "code": 29,
+            "name": "奈良",
+            "color": "#95E1D3",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [29]
+          }, {
+            "code": 30,
+            "name": "和歌山",
+            "color": "#95E1D3",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [30]
+          }, {
+            "code": 31,
+            "name": "鳥取",
+            "color": "#A5DEF1",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [31]
+          }, {
+            "code": 32,
+            "name": "島根",
+            "color": "#A5DEF1",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [32]
+          }, {
+            "code": 33,
+            "name": "岡山",
+            "color": "#A5DEF1",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [33]
+          }, {
+            "code": 34,
+            "name": "広島",
+            "color": "#A5DEF1",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [34]
+          }, {
+            "code": 35,
+            "name": "山口",
+            "color": "#A5DEF1",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [35]
+          }, {
+            "code": 36,
+            "name": "徳島",
+            "color": "#70A1D7",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [36]
+          }, {
+            "code": 37,
+            "name": "香川",
+            "color": "#70A1D7",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [37]
+          }, {
+            "code": 38,
+            "name": "愛媛",
+            "color": "#70A1D7",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [38]
+          }, {
+            "code": 39,
+            "name": "高知",
+            "color": "#70A1D7",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [39]
+          }, {
+            "code": 40,
+            "name": "福岡",
+            "color": "#FF99FE",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [40]
+          }, {
+            "code": 41,
+            "name": "佐賀",
+            "color": "#FF99FE",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [41]
+          }, {
+            "code": 42,
+            "name": "長崎",
+            "color": "#FF99FE",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [42]
+          }, {
+            "code": 43,
+            "name": "熊本",
+            "color": "#FF99FE",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [43]
+          }, {
+            "code": 44,
+            "name": "大分",
+            "color": "#FF99FE",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [44]
+          }, {
+            "code": 45,
+            "name": "宮崎",
+            "color": "#FF99FE",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [45]
+          }, {
+            "code": 46,
+            "name": "鹿児島",
+            "color": "#FF99FE",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [46]
+          }, {
+            "code": 47,
+            "name": "沖縄",
+            "color": "#BA52ED",
+            "hoverColor": "#ffe5b0",
+            "prefectures": [47]
+          }
+        ];
+
+        $("#map").japanMap({
+          areas: areas, //オブジェクト
+          selection: "prefecture",
+          borderLineWidth: 0.25,
+          drawsBoxLine: false,
+          movesIslands: true,
+          showsAreaName: true,
+          width: 800, //地図の幅（heightも指定できるが、アスペクト比を維持して大きい方が優先される）
+          font: "YuGothic", //地図上に表示されるフォントの種類
+          fontSize: 12, //フォントサイズ
+          fontColor: "#333", //フォントカラー
+          fontShadowColor: "white", //テキストシャドウ
+          onSelect: function (data) { //クリックした時
+            location.href = areaLinks[data.area.name];
+          },
+          onHover: function (data) { //マウスオーバー時
+            $("#text").html(data.name);
+            $("#text").css("background", data.area.color);
+          }
+        });
+      });
+    </script>
+    <style>
+      #text {
+        padding: 10px 4px;
+        text-align: center;
+        color: #FFF;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Beginner's建築〜ビギケン〜</h3>
+    </div>
+    <div class="container text-center bg-success">
+      <h4>求人検索ページ</h4>
+    </div>
+    <div class="container text-center bg-light">
+      <h4>※求人を見たい都道府県名を検索してください。</h4>
+      <div class="mt-5" id="map"></div>
+      <p id="text"></p>
+
+      <% if session[:user_id] %>
+        <div class="container">
+          <div class="row mt-5">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 text-center bg-light pb-5">
+              <%= link_to("ユーザーページを確認する","/users/#{session[:user_id]}/users_page",class: "btn btn-warning btn-lg") %>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+      <% end %>
+
+      <% if session[:company_id] %>
+        <div class="container">
+          <div class="row mt-5">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 text-center bg-light">
+              <%= link_to("企業ページを確認する","/company/#{session[:company_id]}/company_page",class: "btn btn-warning btn-lg") %>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+      <% end %>
+      <footer class="text-center mt-5 pt-5">
+        <p>Beginner's建築〜ビギケン〜</p>
+      </footer>
+    </body>
+  </html>

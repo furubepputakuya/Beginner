@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+  <head></head>
+  <body>
+    <div class="login-cover">
+    <% @user.errors.full_messages.each do |message| %>
+      <div class="bg-danger text-center"><%= message %></div>
+    <% end %>
+
+      <div class="login-cover-second">
+        <h1 class="col-md-7" style="float: left;">
+          <span class="title">Beginner's建築へようこそ</span><br>もっと気軽に『ものづくり』を感じよう</h1>
+        <div class="col-md-3 mt-5 pt-5" style="float: left;">
+          <%= form_tag("/users/create") do %>
+          <h4>ユーザー登録</h4>
+          <input type="name" class="form-control mb10" placeholder="名前" name="name">
+          <input type="email" class="form-control mb10" placeholder="メールアドレス" name="email">
+          <input type="password" class="form-control mb10" placeholder="パスワード" name="password">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">登録する</button>
+        <% end %>
+        <div class="mt-5">
+          <%= form_tag("/users/login") do %>
+          <h4>ログイン</h4>
+          <input type="email" class="form-control mb10" placeholder="メールアドレス" name="email">
+          <input type="password" class="form-control mb10" placeholder="パスワード" name="password">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center mt-1 pt-1">
+  <p>Beginner's建築〜ビギケン〜</p>
+</footer>
+</body>
+</html>

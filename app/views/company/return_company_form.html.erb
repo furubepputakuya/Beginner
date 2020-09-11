@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="ja">
+  <head></head>
+  <body>
+    <% @company_form.errors.full_messages.each do |message| %>
+      <div class="bg-danger text-center"><%= message %></div>
+    <% end %>
+
+    <div class="container">
+      <h3>Beginner's建築〜ビギケン〜</h3>
+    </div>
+    <div class="container text-center bg-success">
+      <h4>求人詳細ページ</h4>
+    </div>
+
+    <%= form_tag("/company/#{params[:id]}/return_confirm", {multipart: true}) do %>
+    <div class="container">
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※求人登録地</p>
+        </div>
+        <div class="col-md-10">
+          <% if params[:id] == "hokkaido" %>
+            <% if @company_form.japan == "北海道" %>
+              <%= check_box_tag "japan", "北海道", :checked=>'checked'%>北海道
+            <% else %>
+              <%= check_box_tag "japan", "北海道"%>北海道
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "aomori" %>
+            <% if @company_form.japan == "青森県" %>
+              <%= check_box_tag "japan", "青森県", :checked=>'checked'%>青森県
+            <% else %>
+              <%= check_box_tag "japan", "青森県"%>青森県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "akita" %>
+            <% if @company_form.japan == "秋田県" %>
+              <%= check_box_tag "japan", "秋田県", :checked=>'checked'%>秋田県
+            <% else %>
+              <%= check_box_tag "japan", "秋田県"%>秋田県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "iwate" %>
+            <% if @company_form.japan == "岩手県" %>
+              <%= check_box_tag "japan", "岩手県", :checked=>'checked'%>岩手県
+            <% else %>
+              <%= check_box_tag "japan", "岩手県"%>岩手県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "yamagata" %>
+            <% if @company_form.japan == "山形県" %>
+              <%= check_box_tag "japan", "山形県", :checked=>'checked'%>山形県
+            <% else %>
+              <%= check_box_tag "japan", "山形県"%>山形県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "miyagi" %>
+            <% if @company_form.japan == "宮城県" %>
+              <%= check_box_tag "japan", "宮城県", :checked=>'checked'%>宮城県
+            <% else %>
+              <%= check_box_tag "japan", "宮城県"%>宮城県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "hukusima" %>
+            <% if @company_form.japan == "福島県" %>
+              <%= check_box_tag "japan", "福島県", :checked=>'checked'%>福島県
+            <% else %>
+              <%= check_box_tag "japan", "福島県"%>福島県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "totigi" %>
+            <% if @company_form.japan == "栃木県" %>
+              <%= check_box_tag "japan", "栃木県", :checked=>'checked'%>栃木県
+            <% else %>
+              <%= check_box_tag "japan", "栃木県"%>栃木県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "gunma" %>
+            <% if @company_form.japan == "群馬県" %>
+              <%= check_box_tag "japan", "群馬県", :checked=>'checked'%>群馬県
+            <% else %>
+              <%= check_box_tag "japan", "群馬県"%>群馬県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "ibaraki" %>
+            <% if @company_form.japan == "茨城県" %>
+              <%= check_box_tag "japan", "茨城県", :checked=>'checked'%>茨城県
+            <% else %>
+              <%= check_box_tag "japan", "茨城県"%>茨城県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "saitama" %>
+            <% if @company_form.japan == "埼玉県" %>
+              <%= check_box_tag "japan", "埼玉県", :checked=>'checked'%>埼玉県
+            <% else %>
+              <%= check_box_tag "japan", "埼玉県"%>埼玉県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "tokyo" %>
+            <% if @company_form.japan == "東京都" %>
+              <%= check_box_tag "japan", "東京都", :checked=>'checked'%>東京都
+            <% else %>
+              <%= check_box_tag "japan", "東京都"%>東京都
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "tiba" %>
+            <% if @company_form.japan == "千葉県" %>
+              <%= check_box_tag "japan", "千葉県", :checked=>'checked'%>千葉県
+            <% else %>
+              <%= check_box_tag "japan", "千葉県"%>千葉県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "kanagawa" %>
+            <% if @company_form.japan == "神奈川県" %>
+              <%= check_box_tag "japan", "神奈川県", :checked=>'checked'%>神奈川県
+            <% else %>
+              <%= check_box_tag "japan", "神奈川県"%>神奈川県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "nigata" %>
+            <% if @company_form.japan == "新潟県" %>
+              <%= check_box_tag "japan", "新潟県", :checked=>'checked'%>新潟県
+            <% else %>
+              <%= check_box_tag "japan", "新潟県"%>新潟県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "nagano" %>
+            <% if @company_form.japan == "長野県" %>
+              <%= check_box_tag "japan", "長野県", :checked=>'checked'%>長野県
+            <% else %>
+              <%= check_box_tag "japan", "長野県"%>長野県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "toyama" %>
+            <% if @company_form.japan == "富山県" %>
+              <%= check_box_tag "japan", "富山県", :checked=>'checked'%>富山県
+            <% else %>
+              <%= check_box_tag "japan", "富山県"%>富山県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "yamanasi" %>
+            <% if @company_form.japan == "山梨県" %>
+              <%= check_box_tag "japan", "山梨県", :checked=>'checked'%>山梨県
+            <% else %>
+              <%= check_box_tag "japan", "山梨県"%>山梨県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "isikawa" %>
+            <% if @company_form.japan == "石川県" %>
+              <%= check_box_tag "japan", "石川県", :checked=>'checked'%>石川県
+            <% else %>
+              <%= check_box_tag "japan", "石川県"%>石川県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "gihu" %>
+            <% if @company_form.japan == "岐阜県" %>
+              <%= check_box_tag "japan", "岐阜県", :checked=>'checked'%>岐阜県
+            <% else %>
+              <%= check_box_tag "japan", "岐阜県"%>岐阜県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "aiti" %>
+            <% if @company_form.japan == "愛知県" %>
+              <%= check_box_tag "japan", "愛知県", :checked=>'checked'%>愛知県
+            <% else %>
+              <%= check_box_tag "japan", "愛知県"%>愛知県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "sizuoka" %>
+            <% if @company_form.japan == "静岡県" %>
+              <%= check_box_tag "japan", "静岡県", :checked=>'checked'%>静岡県
+            <% else %>
+              <%= check_box_tag "japan", "静岡県"%>静岡県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "hukui" %>
+            <% if @company_form.japan == "福井県" %>
+              <%= check_box_tag "japan", "福井県", :checked=>'checked'%>福井県
+            <% else %>
+              <%= check_box_tag "japan", "福井県"%>福井県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "siga" %>
+            <% if @company_form.japan == "滋賀県" %>
+              <%= check_box_tag "japan", "滋賀県", :checked=>'checked'%>滋賀県
+            <% else %>
+              <%= check_box_tag "japan", "滋賀県"%>滋賀県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "kyoto" %>
+            <% if @company_form.japan == "京都府" %>
+              <%= check_box_tag "japan", "京都府", :checked=>'checked'%>京都府
+            <% else %>
+              <%= check_box_tag "japan", "京都府"%>京都府
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "mie" %>
+            <% if @company_form.japan == "三重県" %>
+              <%= check_box_tag "japan", "三重県", :checked=>'checked'%>三重県
+            <% else %>
+              <%= check_box_tag "japan", "三重県"%>三重県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "hyogo" %>
+            <% if @company_form.japan == "兵庫県" %>
+              <%= check_box_tag "japan", "兵庫県", :checked=>'checked'%>兵庫県
+            <% else %>
+              <%= check_box_tag "japan", "兵庫県"%>兵庫県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "osaka" %>
+            <% if @company_form.japan == "大阪府" %>
+              <%= check_box_tag "japan", "大阪府", :checked=>'checked'%>大阪府
+            <% else %>
+              <%= check_box_tag "japan", "大阪府"%>大阪府
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "nara" %>
+            <% if @company_form.japan == "奈良県" %>
+              <%= check_box_tag "japan", "奈良県", :checked=>'checked'%>奈良県
+            <% else %>
+              <%= check_box_tag "japan", "奈良県"%>奈良県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "wakayama" %>
+            <% if @company_form.japan == "和歌山県" %>
+              <%= check_box_tag "japan", "和歌山県", :checked=>'checked'%>和歌山県
+            <% else %>
+              <%= check_box_tag "japan", "和歌山県"%>和歌山県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "tottori" %>
+            <% if @company_form.japan == "鳥取県" %>
+              <%= check_box_tag "japan", "鳥取県", :checked=>'checked'%>鳥取県
+            <% else %>
+              <%= check_box_tag "japan", "鳥取県"%>鳥取県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "okayama" %>
+            <% if @company_form.japan == "岡山県" %>
+              <%= check_box_tag "japan", "岡山県", :checked=>'checked'%>岡山県
+            <% else %>
+              <%= check_box_tag "japan", "岡山県"%>岡山県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "simane" %>
+            <% if @company_form.japan == "島根県" %>
+              <%= check_box_tag "japan", "島根県", :checked=>'checked'%>島根県
+            <% else %>
+              <%= check_box_tag "japan", "島根県"%>島根県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "hirosima" %>
+            <% if @company_form.japan == "広島県" %>
+              <%= check_box_tag "japan", "広島県", :checked=>'checked'%>広島県
+            <% else %>
+              <%= check_box_tag "japan", "広島県"%>広島県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "yamaguti" %>
+            <% if @company_form.japan == "山口県" %>
+              <%= check_box_tag "japan", "山口県", :checked=>'checked'%>山口県
+            <% else %>
+              <%= check_box_tag "japan", "山口県"%>山口県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "kagawa" %>
+            <% if @company_form.japan == "香川県" %>
+              <%= check_box_tag "japan", "香川県", :checked=>'checked'%>香川県
+            <% else %>
+              <%= check_box_tag "japan", "香川県"%>香川県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "tokusima" %>
+            <% if @company_form.japan == "徳島県" %>
+              <%= check_box_tag "japan", "徳島県", :checked=>'checked'%>徳島県
+            <% else %>
+              <%= check_box_tag "japan", "徳島県"%>徳島県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "ehime" %>
+            <% if @company_form.japan == "愛媛県" %>
+              <%= check_box_tag "japan", "愛媛県", :checked=>'checked'%>愛媛県
+            <% else %>
+              <%= check_box_tag "japan", "愛媛県"%>愛媛県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "kouti" %>
+            <% if @company_form.japan == "高知県" %>
+              <%= check_box_tag "japan", "高知県", :checked=>'checked'%>高知県
+            <% else %>
+              <%= check_box_tag "japan", "高知県"%>高知県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "fukuoka" %>
+            <% if @company_form.japan == "福岡県" %>
+              <%= check_box_tag "japan", "福岡県", :checked=>'checked'%>福岡県
+            <% else %>
+              <%= check_box_tag "japan", "福岡県"%>福岡県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "saga" %>
+            <% if @company_form.japan == "佐賀県" %>
+              <%= check_box_tag "japan", "佐賀県", :checked=>'checked'%>佐賀県
+            <% else %>
+              <%= check_box_tag "japan", "佐賀県"%>佐賀県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "nagasaki" %>
+            <% if @company_form.japan == "長崎県" %>
+              <%= check_box_tag "japan", "長崎県", :checked=>'checked'%>長崎県
+            <% else %>
+              <%= check_box_tag "japan", "長崎県"%>長崎県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "ooita" %>
+            <% if @company_form.japan == "大分県" %>
+              <%= check_box_tag "japan", "大分県", :checked=>'checked'%>大分県
+            <% else %>
+              <%= check_box_tag "japan", "大分県"%>大分県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "miyazaki" %>
+            <% if @company_form.japan == "宮崎県" %>
+              <%= check_box_tag "japan", "宮崎県", :checked=>'checked'%>宮崎県
+            <% else %>
+              <%= check_box_tag "japan", "宮崎県"%>宮崎県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "kumamot" %>
+            <% if @company_form.japan == "熊本県" %>
+              <%= check_box_tag "japan", "熊本県", :checked=>'checked'%>熊本県
+            <% else %>
+              <%= check_box_tag "japan", "熊本県"%>熊本県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "kagosima" %>
+            <% if @company_form.japan == "鹿児島県" %>
+              <%= check_box_tag "japan", "鹿児島県", :checked=>'checked'%>鹿児島県
+            <% else %>
+              <%= check_box_tag "japan", "鹿児島県"%>鹿児島県
+            <% end %>
+          <% end %>
+
+          <% if params[:id] == "okinawa" %>
+            <% if @company_form.japan == "沖縄県" %>
+              <%= check_box_tag "japan", "沖縄県", :checked=>'checked'%>沖縄県
+            <% else %>
+              <%= check_box_tag "japan", "沖縄県"%>沖縄県
+            <% end %>
+          <% end %>
+
+          <p class="mt-2 mb-1">※求人登録地を確認し、チェックを入れてください。</p>
+        </div>
+      </div>
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※勤務地</p>
+        </div>
+        <div class="col-md-10">
+          <input type="text" class="col-md-5" placeholder="例　北九州市小倉北区　小倉駅より徒歩10分" name="title" value="<%= @company_form.title %>">
+          <p class="mt-2 mb-1">※現場名を記述してください</p>
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※勤務形態</p>
+        </div>
+        <div class="col-md-10 list-inline">
+          <ul class="px-0">
+            <% if @company_form.work_type.include?("正社員") %>
+              <li class="list-inline-item"><%= check_box_tag "work_type[]", "正社員", :checked=>'checked' %>正社員</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "work_type[]", "正社員" %>正社員</li>
+            <% end %>
+
+            <% if @company_form.work_type.include?("アルバイト") %>
+              <li class="list-inline-item"><%= check_box_tag "work_type[]", "アルバイト", :checked=>'checked' %>アルバイト</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "work_type[]", "アルバイト" %>アルバイト</li>
+            <% end %>
+
+            <% if @company_form.work_type.include?("期間限定") %>
+              <li class="list-inline-item"><%= check_box_tag "work_type[]", "期間限定", :checked=>'checked' %>期間限定</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "work_type[]", "期間限定" %>期間限定</li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※キャッチコピー</p>
+        </div>
+        <div class="col-md-10">
+          <input type="text" class="col-md-5" placeholder="例　全くの未経験からできる大工さん体験" name="catchcopy" value="<%= @company_form.catchcopy %>">
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※職種</p>
+        </div>
+        <div class="col-md-10 list-inline">
+          <ul class="px-0">
+            <% if @company_form.work_list.include?("大工工事") %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "大工工事", :checked=>'checked' %>大工工事</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "大工工事" %>大工工事</li>
+            <% end %>
+
+            <% if @company_form.work_list.include?("左官工事") %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "左官工事", :checked=>'checked' %>左官工事</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "左官工事" %>左官工事</li>
+            <% end %>
+
+            <% if @company_form.work_list.include?("土木工事") %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "土木工事", :checked=>'checked' %>土木工事</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "土木工事" %>土木工事</li>
+            <% end %>
+
+            <% if @company_form.work_list.include?("電気工事") %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "電気工事", :checked=>'checked' %>電気工事</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "電気工事" %>電気工事</li>
+            <% end %>
+
+            <% if @company_form.work_list.include?("内装仕上工事") %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "内装仕上工事", :checked=>'checked' %>内装仕上工事</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "内装仕上工事" %>内装仕上工事</li>
+            <% end %>
+
+            <% if @company_form.work_list.include?("給排水工事") %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "給排水工事", :checked=>'checked' %>給排水工事</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "work_list[]", "給排水工事" %>給排水工事</li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※レベル設定</p>
+        </div>
+        <div class="col-md-10 list-inline">
+          <ul class="px-0">
+            <% if @company_form.level_list.include?("レベル1") %>
+              <li class="list-inline-item"><%= check_box_tag "level_list[]", "レベル1", :checked=>'checked' %>レベル1</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "level_list[]", "レベル1" %>レベル1</li>
+            <% end %>
+
+            <% if @company_form.level_list.include?("レベル2") %>
+              <li class="list-inline-item"><%= check_box_tag "level_list[]", "レベル2", :checked=>'checked' %>レベル2</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "level_list[]", "レベル2" %>レベル2</li>
+            <% end %>
+
+            <% if @company_form.level_list.include?("レベル3") %>
+              <li class="list-inline-item"><%= check_box_tag "level_list[]", "レベル3", :checked=>'checked' %>レベル3</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "level_list[]", "レベル3" %>レベル3</li>
+            <% end %>
+
+            <% if @company_form.level_list.include?("レベル4") %>
+              <li class="list-inline-item"><%= check_box_tag "level_list[]", "レベル4", :checked=>'checked' %>レベル4</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "level_list[]", "レベル4" %>レベル4</li>
+            <% end %>
+
+            <% if @company_form.level_list.include?("レベル5") %>
+              <li class="list-inline-item"><%= check_box_tag "level_list[]", "レベル5", :checked=>'checked' %>レベル5</li>
+            <% else %>
+              <li class="list-inline-item"><%= check_box_tag "level_list[]", "レベル5" %>レベル5</li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※給与</p>
+        </div>
+        <div class="col-md-10">
+          <input type="text" class="col-md-5" placeholder="例　時給1200円" name="money" value="<%= @company_form.money %>">
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※その他支給</p>
+        </div>
+        <div class="col-md-10">
+          <input type="text" class="col-md-5" placeholder="例　交通費15000円まで支給" name="otherwise_money" value="<%= @company_form.otherwise_money %>">
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※勤務期間</p>
+        </div>
+        <div class="col-md-10">
+          <input type="text" class="col-md-5" placeholder="例　2018年9月〜2018年12月" name="period" value="<%= @company_form.period %>">
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※仕事内容</p>
+        </div>
+        <div class="col-md-10">
+          <textarea placeholder="仕事内容をここに記述してください。" rows="8" cols="70" name="work_content"><%= @company_form.work_content %></textarea>
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>※その他</p>
+        </div>
+        <div class="col-md-10">
+          <textarea placeholder="その他、備考はここに記述してください。" rows="8" cols="70" name="otherwise"><%= @company_form.otherwise %></textarea>
+        </div>
+      </div>
+
+      <div class="row mt-5 pt-3 pb-2 border-top border-bottom">
+        <div class="col-md-2 pl-5">
+          <p>現場風景</p>
+        </div>
+        <div class="col-md-10 pb-2">
+          <% if @company_form.image %>
+            <%= image_tag(@company_form.image.url, :width => "300") %>
+            <%= hidden_field_tag :"cache[image]", @company_form.image.cache_name %>
+          <% end %>
+          <input name="image" type="file">
+        </div>
+      </div>
+      <div class="text-center mt-3 pt-3">
+        <button class="btn btn-primary btn-lg text-center" type="submit">確認ページへ</button>
+      </div>
+
+      <footer class="text-center mt-5 pt-5">
+        <p>Beginner's建築〜ビギケン〜</p>
+      </footer>
+
+    </div>
+  <% end %>

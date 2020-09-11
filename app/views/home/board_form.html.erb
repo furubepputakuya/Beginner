@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+  <head></head>
+  <body>
+    <div class="container">
+      <h3>Beginner's建築〜ビギケン〜</h3>
+    </div>
+    <div class="container text-center bg-success">
+      <h4>掲示板</h4>
+    </div>
+    <%= form_tag("/home/create") do %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 bg-light text-center py-2">
+          <textarea placeholder="掲示板に記載したい内容をここに記述してください。" rows="8" cols="60" name="content"></textarea>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 text-center mt-2">
+          <button class="btn btn-outline-danger text-center" type="submit">掲示板に投稿する</button>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  <% end %>
+
+  <footer class="text-center mt-3 pt-3">
+    <p>Beginner's建築〜ビギケン〜</p>
+  </footer>
+</body>
+</body>
+</html>

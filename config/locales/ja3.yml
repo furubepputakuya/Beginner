@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      company_form: 求人情報
+    attributes:
+      company_form:
+        title: 勤務地
+        work_type: 勤務形態
+        catchcopy: キャッチコピー
+        work_list: 職種
+        level_list: レベル設定
+        money: 給与
+        otherwise_money: その他支給
+        period: 勤務期間
+        work_content: 仕事内容
+        otherwise: その他
+        image_name: 画像
+        japan: 求人登録地
+        image: 現場風景

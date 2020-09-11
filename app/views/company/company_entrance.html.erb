@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+  <head></head>
+  <body>
+    <div class="login-cover2">
+      <% if @error_message %>
+        <div class="bg-danger text-center"><%= @error_message %></div>
+      <% else %>
+        <% @company.errors.full_messages.each do |message| %>
+          <div class="bg-danger text-center"><%= message %></div>
+        <% end %>
+      <% end %>
+      <div class="login-cover-second">
+        <h1 class="col-md-7" style="float: left;">
+          <span class="title">Beginner's建築へようこそ</span><br>建築の世界をもっと身近にしよう</h1>
+        <div class="col-md-3 mt-4 pt-4" style="float: left;">
+          <%= form_tag("/company/create") do %>
+          <h4>企業登録</h4>
+          <input type="name" class="form-control mb10" placeholder="企業名" name="company_name">
+          <input type="name" class="form-control mb10" placeholder="代表者氏名" name="name">
+          <input type="name" class="form-control mb10" placeholder="電話番号" name="phone">
+          <input type="email" class="form-control mb10" placeholder="メールアドレス" name="email">
+          <input type="password" class="form-control" placeholder="パスワード" name="password">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">登録する</button>
+        <% end %>
+        <div class="mt-5">
+          <%= form_tag("/company/login") do %>
+          <h4>ログイン</h4>
+          <input type="email" class="form-control mb10" placeholder="メールアドレス" name="email">
+          <input type="password" class="form-control mb10" placeholder="パスワード" name="password">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="text-center mt-1 pt-1">
+  <p>Beginner's建築〜ビギケン〜</p>
+</footer>
+</body>
+</html>
